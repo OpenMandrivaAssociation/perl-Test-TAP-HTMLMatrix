@@ -1,6 +1,6 @@
 %define module   Test-TAP-HTMLMatrix
 %define version    0.09
-%define release    %mkrel 1
+%define release    %mkrel 2
 
 Name:       perl-%{module}
 Version:    %{version}
