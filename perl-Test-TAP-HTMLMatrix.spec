@@ -1,6 +1,6 @@
 %define module   Test-TAP-HTMLMatrix
 %define version    0.09
-%define release    %mkrel 2
+%define release    %mkrel 3
 
 Name:       perl-%{module}
 Version:    %{version}
@@ -37,13 +37,14 @@ make test
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+rm -f %{buildroot}%{perl_vendorlib}/Test/TAP/example.pl
 
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc Changes README
+%doc Changes README example.pl
 %{_mandir}/man3/*
 %{perl_vendorlib}/Test
 
