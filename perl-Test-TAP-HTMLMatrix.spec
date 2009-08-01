@@ -1,15 +1,16 @@
-%define module   Test-TAP-HTMLMatrix
-%define version    0.09
-%define release    %mkrel 3
+%define upstream_name    Test-TAP-HTMLMatrix
+%define upstream_version 0.09
 
-Name:       perl-%{module}
-Version:    %{version}
-Release:    %{release}
-License:    GPL or Artistic
-Group:      Development/Perl
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:    Creates colorful matrix of Test::Harness
-Source:     http://www.cpan.org/modules/by-module/Test/%{module}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{module}
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Test/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires: perl(Petal::Utils)
 BuildRequires: perl(Petal)
 BuildRequires: perl(Test::More)
@@ -17,7 +18,7 @@ BuildRequires: perl(Test::TAP::Model)
 BuildRequires: perl(URI::file)
 BuildRequires: perl(Module::Build::Compat)
 BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module is a wrapper for a template and some visualization classes,
@@ -25,7 +26,7 @@ that knows to take a the Test::TAP::Model manpage object, which
 encapsulates test results, and produce a pretty html file.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -47,4 +48,3 @@ rm -rf %{buildroot}
 %doc Changes README example.pl
 %{_mandir}/man3/*
 %{perl_vendorlib}/Test
-
