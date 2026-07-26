@@ -1,15 +1,13 @@
 %define upstream_name    Test-TAP-HTMLMatrix
-%define upstream_version 0.09
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	5
+Version:	0.09
+Release:	6
 
 Summary:	Creates colorful matrix of Test::Harness
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Test-TAP-HTMLMatrix
-Source0:	https://cpan.metacpan.org/authors/id/N/NU/NUFFIN/Test-TAP-HTMLMatrix-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/N/NU/NUFFIN/Test-TAP-HTMLMatrix-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -27,7 +25,7 @@ that knows to take a the Test::TAP::Model manpage object, which
 encapsulates test results, and produce a pretty html file.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -49,9 +47,7 @@ rm -f %{buildroot}%{perl_vendorlib}/Test/TAP/example.pl
 %changelog
 * Sat Aug 01 2009 Jérôme Quelin <jquelin@mandriva.org> 0.90.0-1mdv2010.0
 + Revision: 405597
-- rebuild using %%perl_convert_version
-
-* Tue Sep 09 2008 Guillaume Rousse <guillomovitch@mandriva.org> 0.09-3mdv2009.0
+- rebuild using %0.09 Tue Sep 09 2008 Guillaume Rousse <guillomovitch@mandriva.org> 0.09-3mdv2009.0
 + Revision: 283297
 - examples belongs to documentation (fix conflict with perl-Test-TAP-Model)
 
